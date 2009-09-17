@@ -8,7 +8,7 @@ Ruby gem to map by U.S. state the music played on FM radios
 
 ## Documentation ##
 
-http://rdoc.info/projects/claudiob/radiotagmap
+[http://rdoc.info/projects/claudiob/radiotagmap](http://rdoc.info/projects/claudiob/radiotagmap)
 
 ## Examples ##
 
