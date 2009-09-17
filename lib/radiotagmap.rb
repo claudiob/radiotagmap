@@ -115,7 +115,7 @@ module Radiotagmap
   # == Examples
   #     update_kml
   #--
-  def self.update_kml(kml_path = "./overlay.xml", among = [['Rock'], ['Country']], forever = false)
+  def self.update_kml(kml_path = "./overlay.kml", among = [['Rock'], ['Country']], forever = false)
     begin
       STATES_COORDS.each do |state, coords|
         color = get_map_color(get_tags_weight(state, among))
