@@ -9,8 +9,9 @@ begin
     gem.description = %Q{Radiotagmap reads from Yes.com the songs that are currently playing in FM radios, then extracts the most played tag/genre in every U.S. state and returns a KML representation of this data, which can be plotted on a map using Google Maps or Google Earth.}
     gem.email = "claudiob@gmail.com"
     gem.homepage = "http://github.com/claudiob/radiotagmap"
-    gem.authors = ["claudiob"]
+    gem.authors = ["Claudio Baccigalupo"]
     gem.add_development_dependency "cucumber"
+    gem.add_dependency "claudiob-yesradio", ">=0.1.1"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 rescue LoadError
