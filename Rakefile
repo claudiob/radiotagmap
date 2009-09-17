@@ -12,6 +12,8 @@ begin
     gem.authors = ["Claudio Baccigalupo"]
     gem.add_development_dependency "cucumber"
     gem.add_dependency "claudiob-yesradio", ">=0.1.1"
+    gem.add_dependency "nokogiri", ">=1.3.2"
+    gem.add_dependency "scrobbler", ">=0.2.3"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 rescue LoadError
