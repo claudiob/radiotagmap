@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
      "features/support/env.rb",
      "lib/radiotagmap.rb",
      "lib/us_states_coords.yml",
+     "radiotagmap.gemspec",
      "test/radiotagmap_test.rb",
      "test/test_helper.rb"
   ]
