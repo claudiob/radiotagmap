@@ -19,6 +19,9 @@ Ruby gem to map by U.S. state the music played on FM radios
 
 ## History ##
 
+v0.0.4  2009/09/17
+        Added a parameter to specify the path to the KML file to create
+
 v0.0.3  2009/09/17
         Moved state coords from an external YAML file to the same ruby file
         in order to avoid calling YAML.load which did not find the right path

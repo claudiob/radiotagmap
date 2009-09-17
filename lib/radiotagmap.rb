@@ -9,8 +9,6 @@ require 'scrobbler'
 
 module Radiotagmap
 
-  RADIOTAGMAP_KML = "overlay.kml"
-  
   @log = Logger.new(STDERR)
   @log.level = Logger::WARN
   @log.level = Logger::DEBUG  ### Only for debug purpose ###
@@ -117,18 +115,18 @@ module Radiotagmap
   # == Examples
   #     update_kml
   #--
-  def self.update_kml(among = [['Rock'], ['Country']], forever = false)
+  def self.update_kml(kml_path = "./overlay.xml", among = [['Rock'], ['Country']], forever = false)
     begin
       STATES_COORDS.each do |state, coords|
         color = get_map_color(get_tags_weight(state, among))
         @log.debug "#{state} | The new color is #{color}"
 
-        if File.exists?(RADIOTAGMAP_KML)
-          kml_file = File.open(RADIOTAGMAP_KML, 'r+')
+        if File.exists?(kml_path)
+          kml_file = File.open(kml_path, 'r+')
           xml = Nokogiri::XML(kml_file)
           @log.debug "#{state} | KML map created"
         else
-          kml_file = File.new(RADIOTAGMAP_KML, 'w')
+          kml_file = File.new(kml_path, 'w') # TODO: create ancestor folders
           xml = create_kml
           @log.debug "#{state} | KML map loaded"
         end
