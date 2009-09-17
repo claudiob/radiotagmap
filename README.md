@@ -19,6 +19,9 @@ Ruby gem to map by U.S. state the music played on FM radios
 
 ## History ##
 
+v0.0.5  2009/09/18
+        Updated to require yesradio v0.1.2
+
 v0.0.4  2009/09/17
         Added a parameter to specify the path to the KML file to create
 
