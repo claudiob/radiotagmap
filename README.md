@@ -19,6 +19,11 @@ Ruby gem to map by U.S. state the music played on FM radios
 
 ## History ##
 
+v0.0.3  2009/09/17
+        Moved state coords from an external YAML file to the same ruby file
+        in order to avoid calling YAML.load which did not find the right path
+        when run as a gem
+
 v0.0.2  2009/09/17
         Added gem dependencies.
 

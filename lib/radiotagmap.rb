@@ -3,7 +3,6 @@
 
 # require 'rubygems'
 require 'logger'
-require 'yaml'
 require 'nokogiri'
 require 'yesradio'
 require 'scrobbler'
