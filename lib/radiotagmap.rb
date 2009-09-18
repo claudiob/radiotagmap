@@ -12,6 +12,8 @@ module Radiotagmap
   @log = Logger.new(STDERR)
   @log.level = Logger::WARN
   @log.level = Logger::DEBUG  ### Only for debug purpose ###
+
+  @max_weight = 0.0
   
   # Returns the index of the family of genres/tags that is currently 
   # most playing on the FM radios of a given U.S. state.
@@ -24,7 +26,7 @@ module Radiotagmap
   # == Examples
   #     get_main_tag "CA", [['Rock', 'Indie Rock'], ['Country', 'Alt Country']]
   #--
-  def self.get_tags_weight(state = "CA", among = [['Rock'], ['Country']])
+  def self.get_tags_weight(state = "CA", among = [['Country'], ['Rock']])
     among = among.collect{|family| family.collect(&:downcase)}
     
     # stations = Yesradio::search_stations(:loc => state) 
@@ -42,7 +44,7 @@ module Radiotagmap
     return if artists.nil?
     @log.debug "#{state} | #{artists.length} artists"
     @log.debug "#{state} | #{artists.join(' ')}"
-
+    
     # The same function as above, but without threads, would be:
     # artists = stations.collect do |station| 
     #   Yesradio::get_station :name => station.name
@@ -94,12 +96,15 @@ module Radiotagmap
   def self.get_map_color(weights = [0.5, 0.2])
     a = "aa"
     if weights.nil?
-      a << "ffffff"
+      a << "999999"
     else
+      value = weights[0]
+      @max_weight = [@max_weight, value].max
+      value = value/@max_weight unless @max_weight.zero?
       r = "ff" # "%02x" % (255*weights[0]).round
-      b = "%02x" % (255*(1-weights[1])).round
+      b = "%02x" % (255*(1-value)).round
       g = "ff" #"%02x" % (255*(1-weights.sum)).round
-      a << b << g << r
+      a << b << b << r # The more country, the more red
     end
   end
 
@@ -115,8 +120,13 @@ module Radiotagmap
   # == Examples
   #     update_kml
   #--
-  def self.update_kml(kml_path = "./overlay.kml", among = [['Rock'], ['Country']], forever = false)
+  def self.update_kml(kml_path = "./overlay.kml", among = [['Country']], forever = true)
+    @log.level = Logger::INFO
     begin
+      # TO DO: to increase contrast in color, call one get_map_color
+      # passing the entire array, so that the MAX is first calculated
+      # (e.g. the state with more country only has 6/10 country artists)
+      # and then the contrast of colors is normalized based on that value
       STATES_COORDS.each do |state, coords|
         color = get_map_color(get_tags_weight(state, among))
         @log.debug "#{state} | The new color is #{color}"
