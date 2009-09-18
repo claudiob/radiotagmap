@@ -96,9 +96,9 @@ module Radiotagmap
     if weights.nil?
       a << "ffffff"
     else
-      r = "%02x" % (255*weights[0]).round
-      b = "%02x" % (255*weights[1]).round
-      g = "%02x" % (255*(1-weights.sum)).round
+      r = "ff" # "%02x" % (255*weights[0]).round
+      b = "%02x" % (255*(1-weights[1])).round
+      g = "ff" #"%02x" % (255*(1-weights.sum)).round
       a << b << g << r
     end
   end
