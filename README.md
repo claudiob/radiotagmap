@@ -19,6 +19,9 @@ Ruby gem to map by U.S. state the music played on FM radios
 
 ## History ##
 
+v0.0.7  2009/09/18
+        More contrast in color and defaults to forever and Logger::INFO
+
 v0.0.6  2009/09/18
         Only plot the color of the presence of ONE genre/tag (not two)
 
