@@ -15,7 +15,7 @@ Ruby gem to map by U.S. state the music played on FM radios
 ### To create a KML map according to compare current 'Rock' and 'Country' songs 
 
     require 'radiotagmap'
-    Radiotagmap::update_kml [['Rock'], ['Country']]
+    Radiotagmap::update_kml '/tmp/overlay.kml' [['Country','Alt-Country']]
 
 ## History ##
 
