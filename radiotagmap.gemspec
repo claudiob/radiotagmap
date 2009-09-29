@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Claudio Baccigalupo"]
-  s.date = %q{2009-09-18}
+  s.date = %q{2009-09-29}
   s.description = %q{Radiotagmap reads from Yes.com the songs that are currently playing in FM radios, then extracts the most played tag/genre in every U.S. state and returns a KML representation of this data, which can be plotted on a map using Google Maps or Google Earth.}
   s.email = %q{claudiob@gmail.com}
   s.extra_rdoc_files = [
