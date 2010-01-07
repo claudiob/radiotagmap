@@ -175,8 +175,10 @@ module Radiotagmap
               # xml.name(state.name)
               xml.styleUrl("##{state}")
               xml.Polygon {
-                xml.LinearRing {
-                  xml.coordinates(coords)
+                xml.outerBoundaryIs {
+                  xml.LinearRing {
+                    xml.coordinates(coords)
+                  }
                 }
               }
             }
