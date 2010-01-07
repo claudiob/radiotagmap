@@ -4,7 +4,7 @@ Ruby gem to map by U.S. state the music played on FM radios
 
 ## Installation ##
 
-    sudo gem install claudiob-radiotagmap -s http://gems.github.com
+    sudo gem install radiotagmap -s http://gems.github.com
 
 ## Documentation ##
 
@@ -18,6 +18,9 @@ Ruby gem to map by U.S. state the music played on FM radios
     Radiotagmap::update_kml '/tmp/overlay.kml' [['Country','Alt-Country']]
 
 ## History ##
+
+v0.0.8  2010/01/07
+        Added outerBoundaryIs to KML, otherwise Polygons would not show up
 
 v0.0.7  2009/09/18
         More contrast in color and defaults to forever and Logger::INFO
